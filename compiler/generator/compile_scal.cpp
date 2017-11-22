@@ -132,6 +132,12 @@ Tree ScalarCompiler::prepare(Tree LS)
         //sigToGraph(L3, dotfile);
     }
 
+    if (gGlobal->gTensorFlowSignals) {
+        ofstream dotfile(subst("$0-tfsig.py", gGlobal->makeDrawPath()).c_str());
+        // SL : 28/09/17 : deactivated for now
+        //sigToGraph(L3, dotfile);
+    }
+
   	return L3;
 }
 

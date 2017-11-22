@@ -276,6 +276,10 @@ static bool processCmdline(int argc, const char* argv[])
             gGlobal->gDrawSignals = true;
             i += 1;
 
+        } else if (isCmd(argv[i], "-tf", "--tensor-flow")) {
+            gGlobal->gTensorFlowSignals = true;
+            i += 1;
+
         } else if (isCmd(argv[i], "-blur", "--shadow-blur")) {
             gGlobal->gShadowBlur = true;
             i += 1;

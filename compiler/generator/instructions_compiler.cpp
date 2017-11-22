@@ -36,6 +36,7 @@
 #include "prim2.hh"
 #include "ensure.hh"
 #include "sigToGraph.hh"
+#include "sigToTensorFlow.hh"
 #include "exception.hh"
 #include "global.hh"
 
@@ -164,6 +165,11 @@ Tree InstructionsCompiler::prepare(Tree LS)
     if (gGlobal->gDrawSignals) {
         ofstream dotfile(subst("$0-sig.dot", gGlobal->makeDrawPath()).c_str());
         sigToGraph(L3, dotfile);
+    }
+
+    if (gGlobal->gTensorFlowSignals) {
+        ofstream dotfile(subst("$0-tfsig.py", gGlobal->makeDrawPath()).c_str());
+        sigToTensorFlow(L3, dotfile);
     }
   	return L3;
 }
