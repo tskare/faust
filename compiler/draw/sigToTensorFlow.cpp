@@ -183,11 +183,11 @@ static string sigLabel(Tree sig)
     stringstream fout;
     
     if (p)                                     { fout << p->name(); }
-    else if ( isSigInt(sig, &i) )                   { fout << i;	}
-    else if ( isSigReal(sig, &r) )                  { fout << r;	}
+    else if ( isSigInt(sig, &i) )                   { fout << "tf.constant(" << i << ")";	}
+    else if ( isSigReal(sig, &r) )                  { fout << "tf.constant(" << r << ")";	}
     else if ( isSigWaveform(sig))                   { fout << "waveform";  }
     
-    else if ( isSigInput(sig, &i) )                 { fout << "INPUT_" << i; }
+    else if ( isSigInput(sig, &i) )                 { fout << "tf.variable(\"input" << i << "\")"; }
     //else if ( isSigOutput(sig, &i, x) )             { fout << "OUTPUT_" << i; }
     
     else if ( isSigDelay1(sig, x) )                 { fout << "mem";		}

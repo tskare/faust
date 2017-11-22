@@ -615,6 +615,7 @@ static void printHelp()
     cout << "-d \t\tprint compilation --details\n";
     cout << "-tg \t\tprint the internal --task-graph in dot format file\n";
     cout << "-sg \t\tprint the internal --signal-graph in dot format file\n";
+    cout << "-tf \t\tprint generate --tensor-flow code as a python file\n";
     cout << "-ps \t\tprint block-diagram --postscript file\n";
     cout << "-svg \t\tprint block-diagram --svg file\n";
     cout << "-mdoc \t\tprint --mathdoc of a Faust program in LaTeX format in a -mdoc directory\n";
