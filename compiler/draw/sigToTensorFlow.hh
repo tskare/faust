@@ -19,8 +19,8 @@
  ************************************************************************
  ************************************************************************/
 
-#ifndef SIGTOGRAPH_HH
-#define SIGTOGRAPH_HH
+#ifndef SIGTOTENORFLOW_HH
+#define  SIGTOTENORFLOW_HH
 
 #include "signals.hh"
 #include <string>
