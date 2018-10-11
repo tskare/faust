@@ -1,5 +1,5 @@
 import("stdfaust.lib");
-import("layout2.dsp");
+import("../effects/layout2.dsp");
 
 declare name        "freeverb";
 declare version     "1.0";

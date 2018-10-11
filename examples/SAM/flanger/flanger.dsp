@@ -1,7 +1,7 @@
 // Created from flange.dsp 2015/06/21
 
 import("stdfaust.lib");
-import("layout2.dsp");
+import("../effects/layout2.dsp");
 
 flanger_mono(dmax,curdel,depth,fb,invert,lfoshape)
   = _ <: _, (-:de.fdelay(dmax,curdel)) ~ *(fb) : _,
