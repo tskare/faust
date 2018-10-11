@@ -34,7 +34,6 @@ freezemode  = 0.5;
 stereospread= 23;
 allpassfeed = 0.5; //feedback of the delays used in allpass filters
 
-
 // Filter Parameters
 //------------------
 
@@ -51,7 +50,6 @@ allpasstuningL1 = 556;
 allpasstuningL2 = 441;
 allpasstuningL3 = 341;
 allpasstuningL4 = 225;
-
 
 // Control Sliders
 //--------------------
@@ -72,7 +70,6 @@ combfeed        = roomsizeSlider;
 allpass(dt,fb) = (_,_ <: (*(fb),_:+:@(dt)), -) ~ _ : (!,_);
 
 comb(dt, fb, damp) = (+:@(dt)) ~ (*(1-damp) : (+ ~ *(damp)) : *(fb));
-
 
 // Reverb components
 //------------------

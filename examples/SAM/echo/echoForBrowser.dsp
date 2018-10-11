@@ -1,6 +1,7 @@
 // imported by echo.dsp and echomt.dsp
 
 import("stdfaust.lib");
+import("https://raw.githubusercontent.com/grame-cncm/faust/master-dev/examples/SAM/effects/layout2.dsp");
 
 echo_group(x) = x; // Let layout2.dsp lay us out
    knobs_group(x) = ekg(x);

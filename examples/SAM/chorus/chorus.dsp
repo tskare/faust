@@ -1,6 +1,6 @@
 import("stdfaust.lib");
 
-import("layout2.dsp");
+import("../effects/layout2.dsp");
 
 voices = 8; // MUST BE EVEN
 process = ba.bypass1to2(cbp,chorus_mono(dmax,curdel,rate,sigma,do2,voices));

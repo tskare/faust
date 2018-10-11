@@ -4,7 +4,7 @@ import("stdfaust.lib");
 import("layout2.dsp");
 
 process = _,_ : +
-	: component("echo.dsp")
-	: component("flanger.dsp")
-	: component("chorus.dsp")
-	: component("freeverb.dsp");
+	: component("../echo/echo.dsp")
+	: component("../flanger/flanger.dsp")
+	: component("../chorus/chorus.dsp")
+	: component("../freeverb/freeverb.dsp");

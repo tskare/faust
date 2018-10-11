@@ -1,4 +1,5 @@
 import("stdfaust.lib");
+import("../effects/layout2.dsp"); // follows the Mini Moog front panel: layout2.dsp
 
 // These are now in a separate file ./effects.dsp
 // echo = echog(component("echo.dsp")); // ./echo.dsp
@@ -91,8 +92,6 @@ ptn(i) = select2(lfoMode(i),
 
 // Soon to appear in oscillators.lib:
 lf_pulsetrain(freq,duty) = 2.0*os.lf_pulsetrainpos(freq,duty) - 1.0;
-
-import("layout2.dsp"); // follows the Mini Moog front panel: ./layout2.dsp
 
 filters = ba.bypass1(bp,vcf); // BYPASS WILL GO AWAY (I think you just open it up all the way to bypass):
 bp = 0; // VCF is always on
