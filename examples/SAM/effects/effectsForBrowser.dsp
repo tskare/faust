@@ -1,6 +1,5 @@
 // All effects used by minimoog.dsp
 
-import("stdfaust.lib");
 import("https://raw.githubusercontent.com/grame-cncm/faust/master-dev/examples/SAM/effects/layout2.dsp");
 
 process = _,_ : +
