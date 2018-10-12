@@ -10,8 +10,8 @@ dmax = 32768; // one and done
 dmaxs = float(dmax)/44100.0;
 
 Nnines = 1.8; // Increase until you get the desired maximum amount of smoothing when fbs==1
-fastpow2 = ffunction(float fastpow2(float), "fast_pow2.h", "");
-fbspr(fbs) = 1.0 - mypow(-3.33219*Nnines*fbs); // pole radius of feedback smoother
+
+fbspr(fbs) = 1.0 - mypow2(-3.33219*Nnines*fbs); // pole radius of feedback smoother
 inputSelect(gi) = _,0 : select2(gi);
 echo_mono(dmax,curdel,tapdel,fb,fbspr,gi) = inputSelect(gi) : (+:si.smooth(fbspr)
 				   <: de.fdelay(dmax,curdel),

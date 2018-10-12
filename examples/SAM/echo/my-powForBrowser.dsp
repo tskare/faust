@@ -1,2 +1,0 @@
-
-mypow = pow;
