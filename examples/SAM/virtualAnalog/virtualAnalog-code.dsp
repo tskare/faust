@@ -7,7 +7,7 @@ import("stdfaust.lib");
 // reverb = rg(component("freeverb.dsp"));
 
 process = main <: _,_; // Now separate: : echo : flanger : chorus : reverb;
-main = (signal + extInput : filters : *(ampScaling)) ~ _;
+main = (signal + attach(extInput,amp) : filters : *(ampScaling)) ~ _;
 signal = oscs + noise * noiseOff * namp;
 
 ampScaling = envelopeAmp * masterVolume; // masterVolume is redundant but easier to find
