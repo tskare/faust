@@ -1,0 +1,2 @@
+
+mypow = pow;
