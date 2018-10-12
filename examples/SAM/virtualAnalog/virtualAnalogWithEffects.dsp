@@ -4,8 +4,8 @@ process = environment {
 }.process;
 
 echo = environment {
-	//import("../echo/mypow2.dsp");
-	import("../echo/mypow2ForBrowser.dsp");
+	//import("../echo/pow2.dsp");
+	import("../echo/pow2ForBrowser.dsp");
 	import("../effects/layout2.dsp");
 	import("../echo/echo-code.dsp");
 }.process;

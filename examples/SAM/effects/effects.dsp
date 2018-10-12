@@ -1,7 +1,7 @@
 // All effects used by minimoog.dsp
 
 echo = environment {
-	import("../echo/mypow2.dsp");
+	import("../echo/pow2.dsp");
 	import("layout2.dsp");
 	import("../echo/echo-code.dsp");
 }.process;
