@@ -81,9 +81,14 @@
 #include "js_code_container.hh"
 #endif
 
+#ifdef PYTHON_BUILD
+#include "python_code_container.hh"
+#endif
+
 #ifdef RUST_BUILD
 #include "rust_code_container.hh"
 #endif
+
 
 // Parser
 extern FILE*       yyin;
@@ -627,6 +632,9 @@ global::~global()
 #endif
 #ifdef JS_BUILD
     JAVAScriptInstVisitor::cleanup();
+#endif
+#ifdef PYTHON_BUILD
+    PythonInstVisitor::cleanup();
 #endif
 #ifdef RUST_BUILD
     RustInstVisitor::cleanup();

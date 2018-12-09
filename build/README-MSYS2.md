@@ -42,7 +42,7 @@ To make the default building of Faust (faust.exe + OSC and HTTPD static libs wit
 $ make
 ~~~
 
-or, to build Faust for all the targets (executable, static and dynamic libraries of the compiler, OSC and HTTPD with all the backends included: ASMJS, C, CPP, FIR, JAVA, JS, LLVM, OLDCPP, RUST, WASM):
+or, to build Faust for all the targets (executable, static and dynamic libraries of the compiler, OSC and HTTPD with all the backends included: ASMJS, C, CPP, FIR, JAVA, JS, LLVM, OLDCPP, PYTHON, RUST, WASM):
 ~~~
 $ cd build
 $ make cmake BACKENDS=world.cmake TARGETS=world.cmake

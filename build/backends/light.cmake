@@ -18,6 +18,7 @@ set ( JAVA_BACKEND   OFF         CACHE STRING  "Include JAVA backend" FORCE )
 set ( JS_BACKEND     OFF         CACHE STRING  "Include JAVASCRIPT backend" FORCE )
 set ( LLVM_BACKEND   OFF         CACHE STRING  "Include LLVM backend" FORCE )
 set ( OLDCPP_BACKEND COMPILER STATIC DYNAMIC CACHE STRING  "Include old CPP backend" FORCE )
+set ( PYTHON_BACKEND OFF         CACHE STRING  "Include PYTHON backend" FORCE )
 set ( RUST_BACKEND   OFF         CACHE STRING  "Include RUST backend" FORCE )
 set ( WASM_BACKEND   WASM COMPILER STATIC DYNAMIC CACHE STRING  "Include WASM backend" FORCE )
 

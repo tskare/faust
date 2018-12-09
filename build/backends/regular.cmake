@@ -18,6 +18,8 @@ set ( JAVA_BACKEND   COMPILER STATIC DYNAMIC CACHE STRING  "Include JAVA backend
 set ( JS_BACKEND     COMPILER STATIC DYNAMIC CACHE STRING  "Include JAVASCRIPT backend" FORCE )
 set ( LLVM_BACKEND                       OFF CACHE STRING  "Include LLVM backend" FORCE )
 set ( OLDCPP_BACKEND COMPILER STATIC DYNAMIC CACHE STRING  "Include old CPP backend" FORCE )
+# DO_NOT_SUBMIT - TODO: on by default for development. Should be off to bake for end users.
+set ( PYTHON_BACKEND COMPILER STATIC DYNAMIC CACHE STRING  "Include PYTHON backend" FORCE )
 set ( RUST_BACKEND                       OFF CACHE STRING  "Include RUST backend" FORCE )
 set ( WASM_BACKEND   WASM COMPILER STATIC DYNAMIC CACHE STRING  "Include WASM backend" FORCE )
 

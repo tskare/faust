@@ -111,6 +111,11 @@ static string makeBackendsString()
     sep = ", ";
 #endif
 
+#ifdef PYTHON_BUILD
+    backends << sep << "Python";
+    sep = ", ";
+#endif
+
 #ifdef RUST_BUILD
     backends << sep << "Rust";
     sep = ", ";
@@ -214,6 +219,10 @@ static void enumBackends(ostream& out)
 #include "compile_scal.hh"
 #include "compile_sched.hh"
 #include "compile_vect.hh"
+#endif
+
+#ifdef PYTHON_BUILD
+#include "python_code_container.hh"
 #endif
 
 #ifdef RUST_BUILD
@@ -831,7 +840,7 @@ static void printHelp()
     cout << tab << "-lang <lang> --language                 select output language," << endl;
     cout << tab
          << "                                        'lang' should be in c, ocpp, cpp (default), rust, java, js, ajs, "
-            "llvm, cllvm, fir, wast/wasm, interp."
+            "llvm, cllvm, fir, wast/wasm, python, interp."
          << endl;
     cout << tab
          << "-single     --single-precision-floats   use single precision floats for internal computations (default)."
@@ -1016,7 +1025,7 @@ static void oldprintHelp()
     cout << "-g    \t\t--groupTasks group single-threaded sequential tasks together when -omp or -sch is used\n";
     cout << "-fun  \t\t--funTasks separate tasks code as separated functions (in -vec, -sch, or -omp mode)\n";
     cout << "-lang <lang> \t--language generate various output formats : c, ocpp, cpp, rust, java, js, ajs, llvm, "
-            "cllvm, fir, wast/wasm, interp (default cpp)\n";
+            "cllvm, fir, wast/wasm, python, interp (default cpp)\n";
     cout << "-uim    \t--user-interface-macros add user interface macro definitions in the output code\n";
     cout << "-single \tuse --single-precision-floats for internal computations (default)\n";
     cout << "-double \tuse --double-precision-floats for internal computations\n";
@@ -1138,8 +1147,8 @@ static void initFaustFloat()
     mathsuffix[2] = "";
     mathsuffix[3] = "l";
 
-    // Specific for Rust backend
     if (gGlobal->gOutputLang == "rust") {
+        // Specific for Rust backend
         numsuffix[0] = "";
         numsuffix[1] = "";
         numsuffix[2] = "";
@@ -1160,8 +1169,17 @@ static void initFaustFloat()
         floatmin[2] = DBL_MIN;
         floatmin[3] = LDBL_MIN;
 
-        // Specific for C/C++ backends
+    // TODO(skare): likely need to do this
+    /* } else if (gGlobal->gOutputLang == "python") {
+        // Specific for Python backends
+        mathsuffix[0] = "";
+        mathsuffix[1] = "";
+        mathsuffix[2] = "";
+        mathsuffix[3] = "";
+        */
+
     } else {
+        // Specific for C/C++ backends
         numsuffix[0] = "";
         numsuffix[1] = "f";
         numsuffix[2] = "";
@@ -1519,7 +1537,14 @@ static void generateCode(Tree signals, int numInputs, int numOutputs, bool gener
 #else
             throw faustexception("ERROR : -lang ocpp not supported since old CPP backend is not built\n");
 #endif
-
+        } else if (gGlobal->gOutputLang == "python") {
+#ifdef PYTHON_BUILD
+            // TODO: may not need superclass
+            container = PythonCodeContainer::createContainer(gGlobal->gClassName, gGlobal->gSuperClassName,
+                numInputs, numOutputs, dst);
+#else
+            throw faustexception("ERROR : -lang python not supported since Python backend is not built\n");
+#endif
         } else if (gGlobal->gOutputLang == "rust") {
 #ifdef RUST_BUILD
             gGlobal->gFAUSTFLOATToInternal =
